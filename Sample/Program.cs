@@ -1,4 +1,6 @@
 ﻿using System;
+using ApiSample.Serializer.Object;
+
 
 namespace Sample
 {
@@ -6,7 +8,12 @@ namespace Sample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Person person = new("Me", 18);
+
+            BinarySerializer<Person> bs = new(person);
+            bs.Serializer();
+
+            Console.WriteLine($"{typeof(Person).Name} serialized.");
         }
     }
 }
